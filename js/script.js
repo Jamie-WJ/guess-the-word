@@ -56,6 +56,15 @@ const validateInput = function(letterInput){
         } else {
             guessedLetters.push(guess);
             console.log(guessedLetters);
+            showGuessedLetters();
         }
     };
     
+    const showGuessedLetters= function (){
+        guessedLettersElement.innerHTML="";
+    for (const letter of guessedLetters) {
+        const li= document.createElement("li");
+        li.innerText=letter;
+        guessedLettersElement.append(li);
+    }
+    };
