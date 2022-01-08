@@ -57,14 +57,29 @@ const validateInput = function(letterInput){
             guessedLetters.push(guess);
             console.log(guessedLetters);
             showGuessedLetters();
+            updateWordProgress(guessedLetters);
         }
     };
     
     const showGuessedLetters= function (){
-        guessedLettersElement.innerHTML="";
+        guessedLettersElement.innerHTML=""; //Clears the list.//
     for (const letter of guessedLetters) {
         const li= document.createElement("li");
         li.innerText=letter;
         guessedLettersElement.append(li);
     }
+};
+    const updateWordProgress= function(guessedLetters){
+        const wordUpper= word.toUpperCase();
+        const wordArray=wordUpper.split("");
+        const showWord=[];
+        for (const letter of wordArray){
+            if (guessedLetters.includes(letter)){
+                showWord.push(letter.toUpperCase());
+            } else {
+                showWord.push("●");
+            }
+        } 
+        // console.log(showWord);
+        wordProgress.innerText=showWord.join("");
     };
