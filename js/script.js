@@ -82,4 +82,13 @@ const validateInput = function(letterInput){
         } 
         // console.log(showWord);
         wordProgress.innerText=showWord.join("");
+        checkPlayerWon();
+    };
+
+        const checkPlayerWon= function(){
+            if (word.toUpperCase()=== wordProgress.innerText) {
+                message.classList.add("win");
+                message.innerHTML= `<p class="highlight"> You guessed the correct word! Congrats!</p>`;
+            }
+        
     };
