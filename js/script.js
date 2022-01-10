@@ -118,6 +118,36 @@ const validateInput = function(letterInput){
             if (word.toUpperCase()=== wordProgress.innerText) {
                 message.classList.add("win");
                 message.innerHTML= `<p class="highlight"> You guessed the correct word! Congrats!</p>`;
+            
+            startOver();
             }  
         
     };
+
+    const startOver= function (){
+        guessButton.classList.add("hide");
+        remainingGuessElement.classList.add("hide");
+        guessedLettersElement.classList.add("hide");
+        playAgainButton.classList.remove("hide");
+    };
+
+    playAgainButton.addEventListener("click", function() {
+        //reset original values and grab a new word//
+            message.classList.remove("win");
+            guessedLetters=[];
+            remainingGuesses= 8;
+            remainingGuessSpan.innerText= `${remainingGuesses} guesses`;
+            guessedLettersElement.innerHTML="";
+            message.innerText="";
+
+           
+            getWord();
+
+            guessButton.classList.remove("hide");
+            playAgainButton.classList.add("hide");
+            remainingGuessElement.classList.remove("hide");
+            guessedLettersElement.classList.remove("hide");
+            
+    });
+
+    
