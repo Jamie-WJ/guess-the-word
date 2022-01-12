@@ -9,7 +9,7 @@ const playAgainButton=document.querySelector(".play-again");//The hidden button 
 
 
 let word="magnolia"; 
-const guessedLetters=[];
+let guessedLetters=[];
 let remainingGuesses=8;
 
 
