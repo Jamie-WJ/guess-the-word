@@ -107,6 +107,7 @@ const validateInput = function(letterInput){
 
         if (remainingGuesses === 0){ 
             message.innerHTML=`Better luck next time! The word was <span class="highlight"> ${word} </span>.`;
+            startOver ();
         } else if (remainingGuesses === 1) {
             remainingGuessSpan.innerText=`${remainingGuesses} more guess.`;
         } else {remainingGuessSpan.innerText=`${remainingGuesses} guesses`;
@@ -118,7 +119,7 @@ const validateInput = function(letterInput){
             if (word.toUpperCase()=== wordProgress.innerText) {
                 message.classList.add("win");
                 message.innerHTML= `<p class="highlight"> You guessed the correct word! Congrats!</p>`;
-            
+              
             startOver();
             }  
         
